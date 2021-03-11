@@ -50,4 +50,17 @@ de http://ez7z.en.softonic.com/mac/.
 2. Assim que a máquina virtual abrir, clique no botão Play e, quando solicitado conforme mostrado na Figura 1-1, escolha Eu copiei.
 3. Conforme o Kali Linux é inicializado, você será solicitado conforme mostrado na Figura Abaixo. Escolha a opção destacada superior (padrão).
 
-![Abrindo a máquina virtual Kali Linux](https://docplayer.com.br/docs-images/40/535328/images/page_5.jpg)
+![Abrindo a máquina virtual Kali Linux](![1](https://user-images.githubusercontent.com/27319290/110725173-e5f5e480-81f5-11eb-8401-0d61eabb49ce.png)
+)
+  Abrindo a máquina virtual Kali Linux
+ 
+![Inicializando Kali Linux]()
+  Inicializando Kali Linux
+  
+4. Assim que o Kali Linux for inicializado, você verá uma tela de login como na figura abaixo.
+![Tela de login Kali]()
+Tela de login Kali
+
+5. Clique em Outro e insira as credenciais padrão para Kali Linux, root: toor, como na figura abaixo. Em seguida, clique no botão Login.
+![Tela de login Kali]()
+Logando em Kali
