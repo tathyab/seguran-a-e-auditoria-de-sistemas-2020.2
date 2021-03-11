@@ -34,7 +34,7 @@ para Windows e Linux, que inclui 10 Capítulo 1 recursos adicionais, como a capa
 a qual você pode reverter caso quebre algo. VMware Workstation está disponível gratuitamente por 30 dias, mas depois disso, você vai precisar 
 comprá-lo ou voltar a usar o VMware Player. Os usuários de Mac podem executar uma versão de teste do VMware Fusion (http://www.vmware.com/products/fusion/)
 grátis por 30 dias e custa apenas cerca de R $50 depois disso. 
-## Configurando o Kali 
+### Configurando o Kali 
 Linux Kali é uma distribuição Linux baseada em Debian que vem com uma ampla variedade de ferramentas de segurança pré-instaladas.
 Para o Kali 1.0.6, a versão no momento testado. Você encontrará um link para um torrent contendo uma cópia do Kali 1.0.6 na página
 deste livro site (http://nostarch.com/pentesting/). Com o passar do tempo, novas versões de Kali serão libertadas. Se desejar, sinta-se 
@@ -50,17 +50,58 @@ de http://ez7z.en.softonic.com/mac/.
 2. Assim que a máquina virtual abrir, clique no botão Play e, quando solicitado conforme mostrado na Figura 1-1, escolha Eu copiei.
 3. Conforme o Kali Linux é inicializado, você será solicitado conforme mostrado na Figura Abaixo. Escolha a opção destacada superior (padrão).
 
-![Abrindo a máquina virtual Kali Linux](![1](https://user-images.githubusercontent.com/27319290/110725173-e5f5e480-81f5-11eb-8401-0d61eabb49ce.png)
-)
-  Abrindo a máquina virtual Kali Linux
+![](https://user-images.githubusercontent.com/27319290/110725173-e5f5e480-81f5-11eb-8401-0d61eabb49ce.png)
  
-![Inicializando Kali Linux]()
-  Inicializando Kali Linux
+ Abrindo a máquina virtual Kali Linux
+ 
+ ![](https://user-images.githubusercontent.com/27319290/110725357-3ff6aa00-81f6-11eb-981c-3e1fd097d56f.png)
+ 
+ Inicializando Kali Linux
   
 4. Assim que o Kali Linux for inicializado, você verá uma tela de login como na figura abaixo.
-![Tela de login Kali]()
+![3](https://user-images.githubusercontent.com/27319290/110725532-85b37280-81f6-11eb-8840-d970d01dc093.png)
+
 Tela de login Kali
 
 5. Clique em Outro e insira as credenciais padrão para Kali Linux, root: toor, como na figura abaixo. Em seguida, clique no botão Login.
-![Tela de login Kali]()
+
+![4](https://user-images.githubusercontent.com/27319290/110725806-f9557f80-81f6-11eb-9178-84dba275347b.png)
+
 Logando em Kali
+
+6. Você verá uma tela como a mostrada na Figura abaixo.
+
+![5](https://user-images.githubusercontent.com/27319290/110725879-19853e80-81f7-11eb-9d80-b3c4eb219181.png)
+
+### A GUI do Kali Linux
+
+#### Configurando a rede para sua máquina virtual
+Como usaremos Kali Linux para atacar nossos sistemas de destino em uma rede, precisamos colocar todas as nossas máquinas virtuais na mesma rede virtual (veremos um exemplo de movimentação entre redes no Capítulo 13, que cobre a pós-exploração). VMware oferece três opções de rede virtual conexões: com ponte, NAT e host apenas. Você deve escolher a ponte opção, mas aqui estão algumas informações sobre cada um:
+
+- A rede com ponte conecta a máquina virtual diretamente ao local da rede usando a mesma conexão do sistema host. Na medida em que a rede local está preocupada, nossa máquina virtual é apenas outro nó na rede com seu próprio endereço IP.
+- NAT, abreviação de tradução de endereço de rede, configura uma rede privada no máquina host. A rede privada traduz o tráfego de saída da máquina virtual para a rede local. Na rede local, o tráfego de máquina virtual parece vir do IP da máquina host Morada.
+- A rede somente de host limita a máquina virtual a uma rede privada local no host. A máquina virtual será capaz de se comunicar com outras máquinas virtuais na rede apenas do host, bem como o host máquina em si, mas não será capaz de enviar ou receber qualquer tráfego com a rede local ou a Internet.
+
+### Burp Suite
+
+![6](https://user-images.githubusercontent.com/27319290/110726107-9ca69480-81f7-11eb-96e9-7248f7ef876c.png)
+
+O Burp Suite é uma ferramenta desenvolvida na linguagem Java pela organização PortsWigger com a finalidade de realizar testes de segurança em aplicações. Através desta ferramenta é possível interceptar requisições e respostas de aplicações Web, modificá-las, analisá-las ou coletá-las para outras finalidades. É uma plataforma integrada para a realização de testes de segurança em aplicações web. Suas diversas ferramentas funcionam perfeitamente em conjunto para apoiar todo o processo de testes, de mapeamento e análise de superfície de ataque de uma requisição inicial até encontrar e explorar vulnerabilidades de segurança.
+
+Em testes de segurança em aplicações web, podemos usar um proxy para capturar pedidos e respostas entre o nosso navegador e a aplicação web para que possamos ver exatamente quais dados estão sendo transmitidos. Kali Linux vem com a versão gratuita do Burp Suite, uma plataforma de testes para aplicações web que inclui um recurso de proxy. O Burp inclui outros componentes úteis, tais como Burp Spider, que pode rastrear através da aplicação o conteúdo web e suas funcionalidades, e o Burp Repeater, que permite que você manipule e reenvie pedidos para o servidor. Por enquanto, vamos nos concentrar na Burp Proxy.
+
+Além da função de Proxy, o Burp Suite tem outras funcionalidades:
+- **Spider** – Faz o crawling na aplicação para descobrir o seu conteúdo e funcionalidades;
+- **Scanner** – É usado para fazer scan de requisições HTTP automaticamente para achar vulnerabilidades de segurança;
+- **Intruder** – Permite realizar ataques automatizados personalizados;
+- **Repeater** – Usado para modificar manualmente e reenviar requisições HTTP específicas quantas vezes achar necessário;
+- **Sequencer** – Usado para analisar a qualidade da aleatoriedade dos tokens de sessão de uma aplicação;
+- **Decoder** – Permite transformar bits de dados de aplicativos usando codificação e decodificação de esquemas comuns.
+- **Comparer** – Permite realizar uma comparação visual dos bits dos dados da aplicação para achar diferenças interessantes.
+- **A ferramenta conta com uma versão gratuita (Community) que pode ser baixada através do link: https://portswigger.net/burp/communitydownload.**
+
+De acordo com Diego Macêdo ( 2016),  foi entendido como fazer os procedimentos e especificado abaixo, segundo o autor.
+
+1. Como usar: 
+
+
