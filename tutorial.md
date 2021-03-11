@@ -208,3 +208,5 @@ Agora você poderá navegar normalmente e utilizar o [Burp Suite](https://ironli
 - https://www.diegomacedo.com.br/introducao-ao-burp-suite/
 - Livro: Penetration Testing – A hands-on introduction to Hacking . Autor: Georgia Weidman - 2014.
 
+###Copyright e licença
+Código e documentação com colaboração 2021 dos autores. Código divulgado sob a [licença do MIT](https://github.com/tathyab/seguran-a-e-auditoria-de-sistemas-2020.2/blob/9b85fb6f5b5309ff10d8508c0f66f24b47334f93/LICENSE).
