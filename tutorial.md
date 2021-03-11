@@ -49,3 +49,5 @@ de http://ez7z.en.softonic.com/mac/.
 1. Assim que o arquivo 7-Zip for descompactado, em VMware vá para File -> Open e direcioná-lo para o arquivo Kali Linux 1.0.6 32 bit.vmx no descompactado Pasta Kali Linux 1.0.6 de 32 bits.
 2. Assim que a máquina virtual abrir, clique no botão Play e, quando solicitado conforme mostrado na Figura 1-1, escolha Eu copiei.
 3. Conforme o Kali Linux é inicializado, você será solicitado conforme mostrado na Figura Abaixo. Escolha a opção destacada superior (padrão).
+
+![Abrindo a máquina virtual Kali Linux](https://docplayer.com.br/docs-images/40/535328/images/page_5.jpg)
