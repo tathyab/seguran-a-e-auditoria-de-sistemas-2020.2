@@ -202,11 +202,11 @@ Agora você poderá navegar normalmente e utilizar o [Burp Suite](https://ironli
 
 
 ### Referências Bibliográficas 
-- https://ironlinux.com.br/burp-suite-basics/
-- http://kaoticcreations.blogspot.com/2011/11/burp-suite-part-i-intro-via-sql.html
-- https://portswigger.net/
-- https://www.diegomacedo.com.br/introducao-ao-burp-suite/
-- Livro: Penetration Testing – A hands-on introduction to Hacking . Autor: Georgia Weidman - 2014.
+- VIANA, Marcos, 2014. Iron Linux, c2020.  Burp Suite e Certificado no browser. Disponível em: <https://ironlinux.com.br/burp-suite-basics/>. Acesso em: 11 de março de 2021.
+- AKaotic Creations, 2011. Burp Suite - Part I: Intro via SQL Injection. Disponível em: <http://kaoticcreations.blogspot.com/2011/11/burp-suite-part-i-intro-via-sql.html>. Acesso em: 11 de março de 2021.
+- PORTSWIGGER LTD. PortSwigger, 2021. PortSwigger é líder em segurança cibernética. Criamos software e aprendizagem que permitem ao mundo proteger a web. Disponível em: <https://portswigger.net/>. Acesso em: 11 de março de 2021
+- DIEGO MACÊDO. Diego Macêdo: Um pouco de tudo sobre T.I., 2016. Introdução ao Burp Suite. Disponível em: <https://www.diegomacedo.com.br/introducao-ao-burp-suite/>. Acesso em: 11 de março de 2021.
+- WEIDMAN, Georgia. Penetration Testing – A hands-on introduction to Hacking . San Francisco. No Starch Press.  2014.
 
 ###Copyright e licença
 Código e documentação com colaboração 2021 dos autores. Código divulgado sob a [licença do MIT](https://github.com/tathyab/seguran-a-e-auditoria-de-sistemas-2020.2/blob/9b85fb6f5b5309ff10d8508c0f66f24b47334f93/LICENSE).
