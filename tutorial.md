@@ -101,7 +101,110 @@ Além da função de Proxy, o Burp Suite tem outras funcionalidades:
 - **A ferramenta conta com uma versão gratuita (Community) que pode ser baixada através do link: https://portswigger.net/burp/communitydownload.**
 
 De acordo com Diego Macêdo ( 2016),  foi entendido como fazer os procedimentos e especificado abaixo, segundo o autor.
+#### 1. Como usar: 
 
-1. Como usar: 
+Para iniciar o Burp Suite no Kali Linux, vá para Aplicativos no canto superior esquerdo e clique em Aplicativos --> Web Application Analysis --> Burp suite.
 
+![7](https://user-images.githubusercontent.com/27319290/110827425-d073cf80-8274-11eb-9b86-51dfeeb746c1.png)
+
+Iniciando Burp Suite em Kali
+
+![8](https://user-images.githubusercontent.com/27319290/110827527-ebdeda80-8274-11eb-9909-6007e99c2a8e.jpg)
+
+Burp Suite – Caminho no Kali
+
+#### 2. Configurando o Burp Suite no browser
+Após clicar no software, inicie um novo projeto clicando em “Next”:
+
+![9](https://user-images.githubusercontent.com/27319290/110827937-4d06ae00-8275-11eb-97ec-48979113e85a.png)
+
+
+Em seguida, clique em “Start Burp”:
+
+![10](https://user-images.githubusercontent.com/27319290/110827997-5ee85100-8275-11eb-80aa-be8614a3a3d2.png)
+
+Agora precisaremos configurar o proxy no browser para que o tráfego passe através do Burp. O browser utilizado foi o Firefox ESR (nativo do Kali Linux) mas pode ser feito em qualquer browser como Google Chrome.
+
+![11](https://user-images.githubusercontent.com/27319290/110828517-dcac5c80-8275-11eb-84cb-2e5c3778995c.jpg)
+
+Burp Suite – Tela principal
+
+Na tela do Burp, vá até a aba Proxy. Por padrão, o Intercept deve ser selecionado para que o Burp Suite intercepte e segure qualquer requisição de saída vinda do seu navegador web configurado para usar o Burp como um proxy para o tráfego web. Esta configuração permite que vejamos e até mesmo modifiquemos os detalhes das requisições antes que elas sejam enviadas para o servidor.
+
+#### 3. Agora precisamos dizer ao nosso navegador do Kali para utilizar o Burp Suite como proxy web.
+- Abra o navegador e vá até Opções (Preferences) > Avançado (Advanced) e selecione a aba Rede (Network);
+- Clique em Configurar conexão (Settings);
+- Na nova janela, selecione a opção Configuração manual de proxy (Manual proxy configuration) e coloque o endereço IP 127.0.0.1 e a porta 8080. Marque também a opção de usar este proxy para todos os protocolos.
+Isto fará com que o navegador jogue o tráfego dele para o localhost na porta 8080, a porta padrão do Burp Proxy.
+
+![12](https://user-images.githubusercontent.com/27319290/110828830-37de4f00-8276-11eb-9aef-1e75d30b6753.jpg)
+
+#### 4. Firefox – Configurando o proxy
+
+Confirmar que a configuração está redirecionando.
+Para confirmar que a configuração está redirecionando todo o tráfego através do Burp Suite, navegue em qualquer site e o Burp Suite deverá exibir uma requisição HTTP GET da página. Vou usar o endereço http://testphp.vulnweb.com/login.php.
+
+![13](https://user-images.githubusercontent.com/27319290/110828943-5b08fe80-8276-11eb-8075-8853226c4c45.jpg)
+
+Burp Suite – Capturando a requisição
+
+Veremos a seguir que podemos fazer mudanças na requisição antes de enviar para o servidor, mas por enquanto, vamos seguir redirecionando as requisições (e quaisquer outras subsequentes) clicando no botão Forward. Retornando ao navegador, podemos ver que o servidor respondeu com a página solicitada.
+
+
+#### 5. Testando - acessando algum site.  
+Se tentarmos acessar algum site que tenha um formulário de login, o Burp Suite será capaz de capturar as credenciais. Veja o exemplo abaixo no site:
+
+![14](https://user-images.githubusercontent.com/27319290/110829265-ae7b4c80-8276-11eb-996f-fb3c22505bc6.jpg)
+
+Burp Suite – Captura de credenciais
+
+#### 6. Verificando os parâmetros requisitados .
+Além de conseguir ler a requisição pura, a qual não é amigável de ler, você poderá clicar na aba Params no topo da tela de requisição do Burp Suite para exibir os parâmetros requisitados de uma forma mais fácil de ler.
+
+![15](https://user-images.githubusercontent.com/27319290/110829349-c4890d00-8276-11eb-84d7-9036e1c2c40b.jpg)
+
+Burp Suite – Tela Params
+
+Veja que foi capturado o usuário e senha do formulário. Você pode modificar estes campos diretamente no proxy. Por exemplo, se você mudar a senha capturada por outra antes de redirecionar a requisição para o servidor, o servidor irá receber a nova senha definida no proxy.
+
+O proxy permite você ver os detalhes de qualquer requisição para o servidor. Se você não precisar mais do proxy em algum momento, clique em ''Intercept is on'' para mudar a chave para Intercept is off e permitir o tráfego para passar para o servidor sem necessidade do usuário interagir. Troque o botão de volta se você precisar capturar alguma requisição em particular.
+
+#### Possível problema no meio da instalação do Burp Suite.
+##### Falta de Certificado instalado
+
+Se tiver problemas, após realizar a configuração acima, todo tráfego feito através do browser será monitorado pelo Burp. No entanto, temos um problema com relação aos certificados. Ao abrir um site você receberá mensagens de erro de certificado, semelhante aos exemplos abaixo:
+
+![16](https://user-images.githubusercontent.com/27319290/110829562-06b24e80-8277-11eb-8dbc-f5b5a47061e4.jpg)
+![17](https://user-images.githubusercontent.com/27319290/110829567-07e37b80-8277-11eb-8033-191309c482a4.png)
+
+Isso ocorre porque o certificado do Burp não está instalado e marcado como confiável no seu navegador.
+##### Resolvendo problemas de certificado
+
+Segundo Gustavo Viana (2020), para resolver este problema, precisaremos instalar o certificado CA do Burp.
+
+Para isso, acesse o link http://burp ou http://localhost:8080 ou http://127.0.0.1:8080 e clique em CA Certificate, baixando o certificado.
+
+![19](https://user-images.githubusercontent.com/27319290/110830033-8d672b80-8277-11eb-9492-dfb1057b6e1e.png)
+
+Em seguida, acesse novamente as preferências do seu browser e clique para visualizar os certificados (Esta opção pode ficar na área de Privacidade e Segurança em seu browser):
+
+![20](https://user-images.githubusercontent.com/27319290/110830114-a1129200-8277-11eb-8c2f-9f38f76350d1.png)
+
+Após isso, clique em Import:
+
+![21](https://user-images.githubusercontent.com/27319290/110830182-aff94480-8277-11eb-9309-ae2b98724921.png)
+
+Selecione o certificado baixado anteriormente e clique em OK:
+
+![22](https://user-images.githubusercontent.com/27319290/110830224-be476080-8277-11eb-9b1c-9753cb9e5b69.png)
+
+Agora você poderá navegar normalmente e utilizar o [Burp Suite](https://ironlinux.com.br/burp-suite-basics/) de forma adequada.
+
+
+### Referências Bibliográficas 
+- https://ironlinux.com.br/burp-suite-basics/
+- http://kaoticcreations.blogspot.com/2011/11/burp-suite-part-i-intro-via-sql.html
+- https://portswigger.net/
+- https://www.diegomacedo.com.br/introducao-ao-burp-suite/
+- Livro: Penetration Testing – A hands-on introduction to Hacking . Autor: Georgia Weidman - 2014.
 
