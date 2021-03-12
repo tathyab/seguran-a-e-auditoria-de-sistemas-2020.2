@@ -29,15 +29,10 @@ De acordo com Georgia Weidman ( 2014 - Pág. 09 - 14),  foi entendido como fazer
 ### Instalando VMware 
 Como primeira etapa na configuração do seu laboratório virtual, baixe e instale um produto VMware de mesa.
 O VMware Player está disponível gratuitamente para uso pessoal para Sistemas operacionais Microsoft Windows 
-e Linux (http://www.vmware.com/produtos/jogador/). A VMware também oferece VMware Workstation (http://www.vmware.com/products/workstation/)
-para Windows e Linux, que inclui 10 Capítulo 1 recursos adicionais, como a capacidade de tirar instantâneos do ambiente virtual máquina para 
-a qual você pode reverter caso quebre algo. VMware Workstation está disponível gratuitamente por 30 dias, mas depois disso, você vai precisar 
-comprá-lo ou voltar a usar o VMware Player. Os usuários de Mac podem executar uma versão de teste do VMware Fusion (http://www.vmware.com/products/fusion/)
-grátis por 30 dias e custa apenas cerca de R $50 depois disso. 
+e Linux (http://www.vmware.com/produtos/jogador/). 
 ### Configurando o Kali 
 Linux Kali é uma distribuição Linux baseada em Debian que vem com uma ampla variedade de ferramentas de segurança pré-instaladas.
-Para o Kali 1.0.6, a versão no momento testado. Você encontrará um link para um torrent contendo uma cópia do Kali 1.0.6 na página
-deste livro site (http://nostarch.com/pentesting/). Com o passar do tempo, novas versões de Kali serão libertadas. Se desejar, sinta-se 
+Para o Kali 1.0.6, a versão no momento testado. Com o passar do tempo, novas versões de Kali serão libertadas. Se desejar, sinta-se 
 à vontade para baixar a versão mais recente do Kali Linux em http://www.kali.org/. Lembre-se, porém, que muitas das ferramentas que usaremos
 neste texto estão em desenvolvimento ativo, portanto, se você usar uma versão mais recente de Kali. Se você preferir que tudo funcione como 
 está escrito, recomendo usar a versão do Kali 1.0.6 fornecida no torrent (um arquivo chamado kali-linux-1.0.6-vm-i486.7z), que é uma imagem 
@@ -47,27 +42,20 @@ Você pode encontrar programas 7-Zip para plataformas Windows e Linux em http://
 de http://ez7z.en.softonic.com/mac/.
   
 1. Assim que o arquivo 7-Zip for descompactado, em VMware vá para File -> Open e direcioná-lo para o arquivo Kali Linux 1.0.6 32 bit.vmx no descompactado Pasta Kali Linux 1.0.6 de 32 bits.
-2. Assim que a máquina virtual abrir, clique no botão Play e, quando solicitado conforme mostrado na Figura 1-1, escolha Eu copiei.
+2. Assim que a máquina virtual abrir, clique no botão Play e, quando solicitado conforme mostrado na Figura abaixo, escolha Eu copiei.
 3. Conforme o Kali Linux é inicializado, você será solicitado conforme mostrado na Figura Abaixo. Escolha a opção destacada superior (padrão).
 
-![](https://user-images.githubusercontent.com/27319290/110725173-e5f5e480-81f5-11eb-8401-0d61eabb49ce.png)
- 
- Abrindo a máquina virtual Kali Linux
- 
- ![](https://user-images.githubusercontent.com/27319290/110725357-3ff6aa00-81f6-11eb-981c-3e1fd097d56f.png)
- 
- Inicializando Kali Linux
+![](https://user-images.githubusercontent.com/27319290/110725173-e5f5e480-81f5-11eb-8401-0d61eabb49ce.png) **Abrindo a máquina virtual Kali Linux**
+
+![](https://user-images.githubusercontent.com/27319290/110725357-3ff6aa00-81f6-11eb-981c-3e1fd097d56f.png)**Inicializando Kali Linux**
   
 4. Assim que o Kali Linux for inicializado, você verá uma tela de login como na figura abaixo.
-![3](https://user-images.githubusercontent.com/27319290/110725532-85b37280-81f6-11eb-8840-d970d01dc093.png)
+![3](https://user-images.githubusercontent.com/27319290/110725532-85b37280-81f6-11eb-8840-d970d01dc093.png)**Tela de login Kali**  
 
-Tela de login Kali
 
 5. Clique em Outro e insira as credenciais padrão para Kali Linux, root: toor, como na figura abaixo. Em seguida, clique no botão Login.
 
-![4](https://user-images.githubusercontent.com/27319290/110725806-f9557f80-81f6-11eb-9178-84dba275347b.png)
-
-Logando em Kali
+![4](https://user-images.githubusercontent.com/27319290/110725806-f9557f80-81f6-11eb-9178-84dba275347b.png) **Logando em Kali**
 
 6. Você verá uma tela como a mostrada na Figura abaixo.
 
@@ -76,7 +64,7 @@ Logando em Kali
 ### A GUI do Kali Linux
 
 #### Configurando a rede para sua máquina virtual
-Como usaremos Kali Linux para atacar nossos sistemas de destino em uma rede, precisamos colocar todas as nossas máquinas virtuais na mesma rede virtual (veremos um exemplo de movimentação entre redes no Capítulo 13, que cobre a pós-exploração). VMware oferece três opções de rede virtual conexões: com ponte, NAT e host apenas. Você deve escolher a ponte opção, mas aqui estão algumas informações sobre cada um:
+Como usaremos Kali Linux para atacar nossos sistemas de destino em uma rede, precisamos colocar todas as nossas máquinas virtuais na mesma rede virtual. VMware oferece três opções de rede virtual conexões: com ponte, NAT e host apenas. Você deve escolher a ponte opção, mas aqui estão algumas informações sobre cada um:
 
 - A rede com ponte conecta a máquina virtual diretamente ao local da rede usando a mesma conexão do sistema host. Na medida em que a rede local está preocupada, nossa máquina virtual é apenas outro nó na rede com seu próprio endereço IP.
 - NAT, abreviação de tradução de endereço de rede, configura uma rede privada no máquina host. A rede privada traduz o tráfego de saída da máquina virtual para a rede local. Na rede local, o tráfego de máquina virtual parece vir do IP da máquina host Morada.
@@ -105,13 +93,9 @@ De acordo com Diego Macêdo ( 2016),  foi entendido como fazer os procedimentos 
 
 Para iniciar o Burp Suite no Kali Linux, vá para Aplicativos no canto superior esquerdo e clique em Aplicativos --> Web Application Analysis --> Burp suite.
 
-![7](https://user-images.githubusercontent.com/27319290/110827425-d073cf80-8274-11eb-9b86-51dfeeb746c1.png)
+![7](https://user-images.githubusercontent.com/27319290/110827425-d073cf80-8274-11eb-9b86-51dfeeb746c1.png) **Iniciando Burp Suite em Kali**
 
-Iniciando Burp Suite em Kali
-
-![8](https://user-images.githubusercontent.com/27319290/110827527-ebdeda80-8274-11eb-9909-6007e99c2a8e.jpg)
-
-Burp Suite – Caminho no Kali
+![8](https://user-images.githubusercontent.com/27319290/110827527-ebdeda80-8274-11eb-9909-6007e99c2a8e.jpg) **Burp Suite – Caminho no Kali**
 
 #### 2. Configurando o Burp Suite no browser
 Após clicar no software, inicie um novo projeto clicando em “Next”:
@@ -144,9 +128,7 @@ Isto fará com que o navegador jogue o tráfego dele para o localhost na porta 8
 Confirmar que a configuração está redirecionando.
 Para confirmar que a configuração está redirecionando todo o tráfego através do Burp Suite, navegue em qualquer site e o Burp Suite deverá exibir uma requisição HTTP GET da página. Vou usar o endereço http://testphp.vulnweb.com/login.php.
 
-![13](https://user-images.githubusercontent.com/27319290/110828943-5b08fe80-8276-11eb-8075-8853226c4c45.jpg)
-
-Burp Suite – Capturando a requisição
+![13](https://user-images.githubusercontent.com/27319290/110828943-5b08fe80-8276-11eb-8075-8853226c4c45.jpg) **Burp Suite – Capturando a requisição**
 
 Veremos a seguir que podemos fazer mudanças na requisição antes de enviar para o servidor, mas por enquanto, vamos seguir redirecionando as requisições (e quaisquer outras subsequentes) clicando no botão Forward. Retornando ao navegador, podemos ver que o servidor respondeu com a página solicitada.
 
@@ -154,16 +136,12 @@ Veremos a seguir que podemos fazer mudanças na requisição antes de enviar par
 #### 5. Testando - acessando algum site.  
 Se tentarmos acessar algum site que tenha um formulário de login, o Burp Suite será capaz de capturar as credenciais. Veja o exemplo abaixo no site:
 
-![14](https://user-images.githubusercontent.com/27319290/110829265-ae7b4c80-8276-11eb-996f-fb3c22505bc6.jpg)
-
-Burp Suite – Captura de credenciais
+![14](https://user-images.githubusercontent.com/27319290/110829265-ae7b4c80-8276-11eb-996f-fb3c22505bc6.jpg) **Burp Suite – Captura de credenciais**
 
 #### 6. Verificando os parâmetros requisitados .
 Além de conseguir ler a requisição pura, a qual não é amigável de ler, você poderá clicar na aba Params no topo da tela de requisição do Burp Suite para exibir os parâmetros requisitados de uma forma mais fácil de ler.
 
-![15](https://user-images.githubusercontent.com/27319290/110829349-c4890d00-8276-11eb-84d7-9036e1c2c40b.jpg)
-
-Burp Suite – Tela Params
+![15](https://user-images.githubusercontent.com/27319290/110829349-c4890d00-8276-11eb-84d7-9036e1c2c40b.jpg) **Burp Suite – Tela Params**
 
 Veja que foi capturado o usuário e senha do formulário. Você pode modificar estes campos diretamente no proxy. Por exemplo, se você mudar a senha capturada por outra antes de redirecionar a requisição para o servidor, o servidor irá receber a nova senha definida no proxy.
 
